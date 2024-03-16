@@ -1,0 +1,9 @@
+body
+{
+    display: flex;
+    flex-direction: row;
+}
+button, input
+{
+    display: inline-flex;
+}

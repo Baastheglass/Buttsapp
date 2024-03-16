@@ -8,39 +8,95 @@ body
     font-family: 'Press Start 2P', system-ui;
     font-family: 'Sixtyfour', sans-serif;
     text-align:center;
+    margin-top: 0%;
+    margin-left: 0%;
+    padding-top: 0px;
 }
-nav
+nav > ul
 {
     display: flex;
     flex-direction: row;
-    width: 100%;
-}
-ul
-{
     list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 20%;
-    height: 100vh;
     background-color: #8C7AA9;
-    border: solid 2px;
+    width: 100%;
+    padding:0px;
 }
 li
 {
-    background-color: #AEF3E7;
     font-size: 2.5rem;
 }
-#option3 > li
+.options
 {
-    font-size: 2rem;
+    border: 2px solid black;
+    background-color: #AEF3E7;
+    text-align:center;
+}
+#option1
+{
+    margin-left: 0%;
 }
 div
-{
-    margin-bottom: 100%;
-    border: solid 2px black;
-    color: #DC6BAD;                                   
+{  
+    color: #DC6BAD;
+    margin-right: 1%;                                   
 }
 .options:hover
 {
-    border: solid 5px floralwhite;
+    border: solid 2px floralwhite;
+}
+.feed
+{
+    width: 100%;
+    height: 100%;
+}
+.post
+{
+    width: 30%;
+    height: 30%;
+    margin: 0 auto;
+    margin-bottom: 7.5%;
+}
+.picture > img
+{
+    width: 100%;
+    border: solid 2px;
+    height: 100%;
+}
+.caption
+{
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    justify-content: left;
+    margin-left: 0%;
+    margin-bottom: 2.5%;
+}
+.pfp
+{
+    width: 7.5%;
+    height: 5%;
+    border-radius: 50%;
+    border: solid 1px;
+    margin-right: 2.5%;
+}
+.postButton
+{
+    width: 30%;
+    border: 2px solid black;
+    background-color: #AEF3E7;
+    color: #DC6BAD;
+    text-align:center;
+    font-family: 'Dangrek', sans-serif;
+    font-family: 'Press Start 2P', system-ui;
+    font-family: 'Sixtyfour', sans-serif;
+    font-size: 1rem;
+}
+.postButton:hover
+{
+    border: solid 2px floralwhite;
+}
+#webName
+{
+    margin-left: 20%;
+    /* text-align: left; */
 }
