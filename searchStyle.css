@@ -1,9 +1,37 @@
 body
 {
-    display: flex;
-    flex-direction: row;
+    font-family: 'Dangrek', sans-serif;
+    font-family: 'Press Start 2P', system-ui;
+    font-family: 'Sixtyfour', sans-serif;
+    background-color: #AEF3E7;
+    background-color: #D6FFF6;
+    color: #DC6BAD;
 }
 button, input
 {
     display: inline-flex;
+    font-family: 'Dangrek', sans-serif;
+    font-family: 'Press Start 2P', system-ui;
+    font-family: 'Sixtyfour', sans-serif;
+}
+h1
+{
+    margin: 0;
+    font-size: 5rem;
+    text-align: center;
+}
+#searchBar
+{
+    display: flex;
+    justify-content: center;
+    gap: 0.5%;
+    margin-top: 2.5%;
+}
+#searchButton, #searchText
+{
+    font-size: 1.5rem;
+}
+#back
+{
+    font-size: 1.5rem;
 }
