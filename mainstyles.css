@@ -19,6 +19,7 @@ nav > ul
     list-style: none;
     background-color: #8C7AA9;
     width: 100%;
+    height: 10vh;
     padding:0px;
 }
 li
@@ -30,6 +31,7 @@ li
     border: 2px solid black;
     background-color: #AEF3E7;
     text-align:center;
+    height: 9.5vh;
 }
 #option1
 {
@@ -99,4 +101,8 @@ div
 {
     margin-left: 20%;
     /* text-align: left; */
+}
+a
+{
+    text-decoration: none;
 }

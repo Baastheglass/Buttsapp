@@ -1,0 +1,76 @@
+body
+{
+    font-family: 'Dangrek', sans-serif;
+    font-family: 'Press Start 2P', system-ui;
+    font-family: 'Sixtyfour', sans-serif;
+    background-color: #AEF3E7;
+    color: #DC6BAD;
+    margin: 0;
+}
+h1
+{
+    text-align: center;
+    font-size: 6rem;
+    margin-bottom: 0;
+}
+#right
+{
+    position: absolute;
+    right: 0%;
+    width: 45vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    justify-content: center;
+}
+#right > input
+{
+    margin-bottom: 10%;
+}
+#left
+{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: 0%;
+    width: 45vw;
+    height: 100vh;
+    margin-bottom: 10%;
+}
+textarea
+{
+    height: 20vh;
+    margin-bottom: 1%;
+}
+textarea, button
+{
+    font-family: 'Dangrek', sans-serif;
+    font-family: 'Press Start 2P', system-ui;
+    font-family: 'Sixtyfour', sans-serif;
+    font-size: 1rem;
+}
+#back
+{
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+h2
+{
+    font-size: 3rem;
+}
+p
+{
+    text-align: justify;
+    font-size: 1.5rem;
+}
+h2, p
+{
+    margin-left: 1.25%;
+}
+#phone, #office, #fax
+{
+    background-color: #8C7AA9;
+}
