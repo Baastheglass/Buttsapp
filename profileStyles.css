@@ -5,6 +5,8 @@ body
     font-family: 'Sixtyfour', sans-serif;
     background-color: #AEF3E7;
     margin: 0;
+    animation-name: fadeIn;
+    animation-duration: 2s;
 }
 #profileInfo
 {
@@ -75,6 +77,11 @@ th
 {
     color: aliceblue;
 }
+.post
+{
+    opacity: 90%;
+    border: solid 3px #8C7AA9;
+}
 #back
 {
     font-family: 'Dangrek', sans-serif;
@@ -91,5 +98,35 @@ th
 }
 .post:hover
 {
-    opacity: 50%;
+    opacity: 100%;
+    border: solid 6px #8C7AA9;
+} 
+#posts
+{
+    animation-name: fadeIn;
+    animation-duration: 4s;
+}
+@keyframes fadeIn
+{
+    0%
+    {
+        opacity: 0%;
+    }
+    100%
+    {
+        opacity: 100%;
+    }
+}
+@keyframes scale 
+{
+    0%
+    {
+        opacity: 0%;
+        scale: 0%;
+    }
+    100%
+    {
+        opacity: 0%;
+        scale: 100%;
+    }
 }

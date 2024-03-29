@@ -36,6 +36,8 @@ li
     text-align:center;
     height: 9.5vh;
     border-radius: 10%;
+    animation-name: bounce;
+    animation-duration: 1.5s;
 }
 #option1
 {
@@ -54,6 +56,8 @@ div
 {
     width: 100%;
     height: 100%;
+    animation: scale;
+    animation-duration: 1.5s;
 }
 .post
 {
@@ -110,16 +114,65 @@ a
 {
     text-decoration: none;
 }
-@keyframes scale-a-lil {
-    from {
+li
+{
+    animation-name: fadeIn;
+    animation-duration: 2s;
+}
+@keyframes scale-a-lil 
+{
+    from 
+    {
       scale: .5;
     }
-  }
-    
-  @media (prefers-reduced-motion: no-preference) {
-    .post {
-      animation: scale-a-lil linear both;
-      animation-timeline: view();
-      animation-range: 25vh 75vh;
+}
+@media (prefers-reduced-motion: no-preference) 
+{
+    .post 
+    {
+        animation: scale-a-lil linear both;
+        animation-timeline: view();
+        animation-range: 25vh 75vh;
     }
-  }
+}
+@keyframes bounce
+{
+    0%
+    {
+        opacity: 0%;
+        scale: 0%;
+    }
+    50%
+    {
+        scale: 105%;
+    }
+    100%
+    {
+        opacity: 100%;
+        scale: 100%;
+    }
+}
+@keyframes scale 
+{
+    0% 
+    {
+        scale: 0%;
+        opacity: 0%;
+    }
+    100%
+    {
+        scale: 100%;
+        opacity: 100%;
+    }
+}
+@keyframes fadeIn
+{
+    0%
+    {
+        opacity: 0%;
+    }
+    100%
+    {
+        opacity: 100%;
+    }
+}
