@@ -8,6 +8,8 @@ h1
 {
     text-align: center;
     font-size: 5rem;
+    animation-name: slideFromTop;
+    animation-duration: 2s;
 }
 #button
 {
@@ -61,6 +63,8 @@ p
 #back
 {
     font-size: 1.5rem;
+    animation-name: fadeIn;
+    animation-duration: 3s;
 }
 #post
 {
@@ -70,3 +74,29 @@ textarea
 {
     font-size: 1rem;
 }
+@keyframes slideFromTop
+{
+    0%
+    {
+        scale: 0%;
+        margin-top: 200%;
+        opacity: 0%;
+    }
+    100% 
+    {
+        margin-top: 4%;
+        opacity: 100%;
+        scale: 100%;
+    }
+}
+@keyframes fadeIn
+{
+    0%
+    {
+        opacity: 0%;
+    }
+    100%
+    {
+        opacity: 100%;
+    }
+} 
