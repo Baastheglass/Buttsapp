@@ -56,7 +56,7 @@ th
 {
     margin-bottom: 5%;
 }
-.line > img
+.line > a > img
 {
     width: 30vw;
     height: 30vw;
@@ -88,4 +88,8 @@ th
 #back:hover
 {
     color: aliceblue;
+}
+.post:hover
+{
+    opacity: 50%;
 }
