@@ -21,6 +21,9 @@ nav > ul
     width: 100%;
     height: 10vh;
     padding:0px;
+    margin-top: 0%;
+    margin-right: 0%;
+    margin-left: 0%;
 }
 li
 {
@@ -32,6 +35,7 @@ li
     background-color: #AEF3E7;
     text-align:center;
     height: 9.5vh;
+    border-radius: 10%;
 }
 #option1
 {
@@ -91,7 +95,7 @@ div
     font-family: 'Dangrek', sans-serif;
     font-family: 'Press Start 2P', system-ui;
     font-family: 'Sixtyfour', sans-serif;
-    font-size: 1rem;
+    font-size: 1.15rem;
 }
 .postButton:hover
 {
@@ -106,3 +110,16 @@ a
 {
     text-decoration: none;
 }
+@keyframes scale-a-lil {
+    from {
+      scale: .5;
+    }
+  }
+    
+  @media (prefers-reduced-motion: no-preference) {
+    .post {
+      animation: scale-a-lil linear both;
+      animation-timeline: view();
+      animation-range: 25vh 75vh;
+    }
+  }
