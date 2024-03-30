@@ -11,7 +11,9 @@ h1
     margin-bottom: 2.5%;
     font-family: 'Dangrek', sans-serif;
     font-family: 'Press Start 2P', system-ui;
-    font-family: 'Sixtyfour', sans-serif;    
+    font-family: 'Sixtyfour', sans-serif;  
+    animation-name: scaleSlide;
+    animation-duration: 2s;  
 }
 .line
 {
@@ -50,4 +52,94 @@ button:hover
 button:active
 {
     transform: scale(0.95);
+}
+#line1
+{
+    animation-name: slideRight;
+    animation-duration: 0.5s;
+}
+#line2
+{
+    animation-name: slideRight;
+    animation-duration: 0.75s;
+}
+#line3
+{
+    animation-name: slideRight;
+    animation-duration: 1s;
+}
+#line4
+{
+    animation-name: slideRight;
+    animation-duration: 1.25s;
+}
+#line5
+{
+    animation-name: slideRight;
+    animation-duration: 1.5s;
+}
+#line6
+{
+    animation-name: slideRight;
+    animation-duration: 1.75s;
+}
+#line7
+{
+    animation-name: slideTop;
+    animation-duration: 2.25s;
+}
+@keyframes scaleSlide
+{
+    0%
+    {
+        scale: 0%;
+        opacity: 0%;
+        margin-top: 200%;
+    }
+    25%
+    {
+        opacity: 0%;
+    }
+    100%
+    {
+        scale: 100%;
+        opacity: 100%;
+        margin-top: 0%;
+    }
+}
+@keyframes slideRight
+{
+    0%
+    {
+        margin-left: 200%;
+        opacity: 0%;
+    }
+    75%
+    {
+        opacity: 0%;
+    }
+    100%
+    {
+        margin-left: 0%;
+        opacity: 100%;
+    }
+}
+@keyframes slideTop
+{
+    0%
+    {
+        opacity: 0%;
+        margin-top: 300%;
+        scale: 0%;
+    }
+    50%
+    {
+        opacity: 0%;
+    }
+    100%
+    {
+        opacity: 100%;
+        margin-top: 0%;
+        scale: 100%;
+    }
 }
