@@ -1,23 +1,26 @@
 body
 {
-    background-color: #AEF3E7;
-    color: #DC6BAD;
-    font-family: 'Dangrek', sans-serif;
-    font-family: 'Press Start 2P', system-ui;
-    font-family: 'Sixtyfour', sans-serif;
+    background-color: #88BDBC;
+    color: #112D32;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
     text-align:center;
 }
 input
 {
-    font-family: 'Dangrek', sans-serif;
-    font-family: 'Press Start 2P', system-ui;
-    font-family: 'Sixtyfour', sans-serif;
-}
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+} 
 button
 {
-    font-family: 'Dangrek', sans-serif;
-    font-family: 'Press Start 2P', system-ui;
-    font-family: 'Sixtyfour', sans-serif;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
 }
 .comment
 {
@@ -28,11 +31,11 @@ button
     align-items: center;
     margin-top:5%;
 }
-.pfp, p
+.pfp
 {
     border-radius: 50%;
     width: 5%;
-    display: inline-flex;
+    margin-right: 1.5%;
 }
 #input
 {
@@ -49,5 +52,30 @@ p,button,input
     position:absolute;
     top:0;
     left:0;
-    margin-top:1.25%;
+    font-size: 2rem;
+}
+h1
+{
+    font-size: 5rem;
+    animation-name: scaleUp;
+    animation-duration: 2s;
+}
+@keyframes scaleUp 
+{
+    0%
+    {
+        opacity: 0%;
+        scale: 0%;
+        margin-top: 200%;
+    }
+    50%
+    {
+        opacity: 0%;
+    }
+    100%
+    {
+        margin-top: 2.75%;
+        scale: 100%;
+        opacity: 100%;
+    }
 }
