@@ -6,6 +6,7 @@ const config={
      connectionString: "DSN=ButtsappBackEnd;UID=sa;PWD=12345678;" /*SQL System Adminstrator UID/PASS DSN ODBC driver*/
  };
 
+module.exports = {Login_Verify, addAccount, addComment, addPost, addLikes, addFollower, generateFeed, generateComments};
 function Login_Verify(username, password, returnback)
 {
     // Establish a connection to the SQL Server using the provided configuration
@@ -262,10 +263,10 @@ function generateFeed(username, returnback)
     });
 }
 
-generateFeed("buttButter" , (result) => 
-{
-    console.log("Feed:", result);
-});
+// generateFeed("buttButter" , (result) => 
+// {
+//     console.log("Feed:", result);
+// });
 
 function generateComments(postID, returnback)
 {
@@ -306,8 +307,8 @@ function generateComments(postID, returnback)
     });
 }
 
-generateComments(1 , (result) => 
-{
-    console.log("Comments:", result);
-});
+// generateComments(1 , (result) => 
+// {
+//     console.log("Comments:", result);
+// });
 
