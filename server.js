@@ -11,11 +11,11 @@ const server_ip = "192.168.100.18"; /*DO CHANGE WHEN URL/IPV4 CHANGES MANDATORY*
 const server_port = 5500;
 server.use(middle.urlencoded({ extended: true }));
 server.use(express.static('C:/Users/User/Desktop/VSCode/WEBDEV/BUTTSAPP'));
-server.use(cookie_parser);
+server.use(cookie_parser());
 /*Server Listening */
 server.listen(server_port,server_ip,(server_error)=>{
     console.log("***********************************");
-    console.log("ButtSapp Server is now online!");
+    console.log("ButtsApp Server is now online!");
     console.log("Listening to "+server_ip+":"+server_port);
     console.log("***********************************");
 })

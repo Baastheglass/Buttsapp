@@ -1,8 +1,8 @@
 const get_cookie = new XMLHttpRequest();
 
 
-//get_cookie.open("GET",'/get_cookie');
-//get_cookie.send();
+get_cookie.open("GET",'/get_cookie');
+get_cookie.send();
 
 get_cookie.onload = function()
 {
