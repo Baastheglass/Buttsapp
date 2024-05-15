@@ -1,25 +1,23 @@
 body
 {
-    background-color: #AEF3E7;
-    background-color: #D6FFF6;
-    color: #DC6BAD;
-    color: #AEF3E7;
-    font-family: 'Dangrek', sans-serif;
-    font-family: 'Press Start 2P', system-ui;
-    font-family: 'Sixtyfour', sans-serif;
+    background-color: #88BDBC;
+    color: #112D32;
+    font-size: 2.5rem;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;  
     text-align:center;
-    margin-top: 0%;
-    margin-left: 0%;
-    padding-top: 0px;
 }
 li
 {
+
     font-size: 2.5rem;
 }
 .options
 {
     border: 2px solid black;
-    background-color: #AEF3E7;
+    background-color: #88BDBC;
     text-align:center;
     height: 9.5vh;
 }
@@ -29,12 +27,12 @@ li
 }
 div
 {  
-    color: #DC6BAD;
+    color: #112D32 ;
     margin-right: 1%;                                   
 }
 .options:hover
 {
-    border: solid 2px floralwhite;
+    border: solid 2px   #112D32;
 }
 .feed
 {
@@ -75,17 +73,23 @@ div
 {
     width: 30%;
     border: 2px solid black;
-    background-color: #AEF3E7;
-    color: #DC6BAD;
+    background-color: #112D32;
+    color: floralwhite;
     text-align:center;
-    font-family: 'Dangrek', sans-serif;
-    font-family: 'Press Start 2P', system-ui;
-    font-family: 'Sixtyfour', sans-serif;
-    font-size: 1rem;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;  
+    font-size: 1.5rem;
+}
+.postButton > img
+{
+    fill: #EEEEEE;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(299deg) brightness(104%) contrast(103%);
 }
 .postButton:hover
 {
-    border: solid 2px floralwhite;
+    border: solid 2px  floralwhite ;
 }
 a
 {
@@ -96,11 +100,24 @@ a
     position: absolute;
     left: 0%;
     top: 0%;
-    font-family: 'Dangrek', sans-serif;
-    font-family: 'Press Start 2P', system-ui;
-    font-family: 'Sixtyfour', sans-serif;
+    font-family: "Exo 2", sans-serif;
+    background-color:#112D32 ;
+    animation-name: fadeIn;
+    border: solid 2.5px;
+    font-size: 1.5rem;
+    animation-duration: 3s;
+  
+}
+#back:hover
+{
+    border-color: floralwhite;
+}
+#back > img
+{
+    fill: #EEEEEE;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(299deg) brightness(104%) contrast(103%);
 }
 h1
 {
-    color:#DC6BAD
+    color: #112D32
 }
