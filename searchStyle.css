@@ -67,12 +67,12 @@ h1
     animation-name: scale;
     animation-duration: 2s;
 }
-.results
+#results
 {
     text-align:center;
     font-size: 2rem;
 }
-.results:hover
+#results:hover
 {
     color: floralwhite;
 }
