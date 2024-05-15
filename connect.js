@@ -6,7 +6,7 @@ const config={
      connectionString: "DSN=ButtsappBackEnd;UID=sa;PWD=12345678;" /*SQL System Adminstrator UID/PASS DSN ODBC driver*/
  };
 
-module.exports = {Login_Verify, addAccount, addComment, addPost, addLikes, addFollower, generateFeed, generateComments};
+module.exports = {Login_Verify, addAccount, addComment, addPost, addLikes, addFollower, generateFeed, generateComments, getUsers};
 function Login_Verify(username, password, returnback)
 {
     // Establish a connection to the SQL Server using the provided configuration
@@ -306,9 +306,47 @@ function generateComments(postID, returnback)
         });
     });
 }
-
-// generateComments(1 , (result) => 
+//generateComments(1);
+function getUsers(username, returnback)
+{
+        // Establish a connection to the SQL Server using the provided configuration
+    db_sql.connect(config,(error)=>{
+        // Check if there is an error while connecting to the database
+        if(error){
+            console.log("\nDatabase SQL Connection failed!\n"); 
+            // Call the callback function with 'false' to indicate connection failure
+            returnback(false);
+        }
+        // Create a new SQL request object
+        let  query_exec=new db_sql.Request();
+        
+        // Define the stored procedure to execute for login check
+        let exec_procedure = "exec getUsers";
+        
+        // Define the input parameters for the stored procedure (email and password)
+        let parameters = "\n @username = " + username;
+        
+        // Concatenate all parts to form the complete SQL query
+        let full_query = exec_procedure + parameters;
+        
+        // Execute the SQL query
+        query_exec.query(full_query,(query_error,res)=>{
+            // Check if there is an error while executing the query
+            if(query_error){
+                console.log("\n****Get Users Failed!*****\n"+query_error); 
+                // Call the callback function with 'false' to indicate query failure
+                returnback(false);
+            }
+            // Log the query for debugging purposes
+            console.log("****For Debugging Get Users Query ******\n"+ full_query +"\n*************");
+            
+            // Call the callback function with the result of the query
+            returnback(res.recordset);
+        });
+    });
+}
+// getUsers("a", (result) => 
 // {
-//     console.log("Comments:", result);
+//     console.log("Users:", result);
 // });
 

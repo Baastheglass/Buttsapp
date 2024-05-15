@@ -67,6 +67,15 @@ h1
     animation-name: scale;
     animation-duration: 2s;
 }
+.results
+{
+    text-align:center;
+    font-size: 2rem;
+}
+.results:hover
+{
+    color: floralwhite;
+}
 @keyframes bounce
 {
     0%

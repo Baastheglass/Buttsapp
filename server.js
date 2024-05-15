@@ -7,23 +7,25 @@ const o_stream = require('fs');
 const multer = require('multer');
 const cookie_parser = require('cookie-parser');
 
-const server_ip = "172.20.10.3"; /*DO CHANGE WHEN URL/IPV4 CHANGES MANDATORY*/
+const server_ip = "192.168.100.18"; /*DO CHANGE WHEN URL/IPV4 CHANGES MANDATORY*/
 const server_port = 5500;
 server.use(middle.urlencoded({ extended: true }));
 server.use(express.static('C:/Users/User/Desktop/VSCode/WEBDEV/BUTTSAPP'));
+server.use(cookie_parser);
 /*Server Listening */
 server.listen(server_port,server_ip,(server_error)=>{
     console.log("***********************************");
-    console.log("Connectify Server is now online!");
+    console.log("ButtSapp Server is now online!");
     console.log("Listening to "+server_ip+":"+server_port);
     console.log("***********************************");
 })
 global.current_workspace=path.resolve(__dirname);
 //Module imports
-const {Login_Verify, addAccount, addComment, addPost, addLikes, addFollower, generateFeed, generateComments} = require("./connect.js");
+const {Login_Verify, addAccount, addComment, addPost, addLikes, addFollower, generateFeed, generateComments, getUsers} = require("./connect.js");
 
 server.get('/get_feed',(required,sender)=>{
-    generateFeed((returnback)=>{
+    var username = required.username;
+    generateFeed(username, (returnback)=>{
             if(returnback==true){console.log("****generateFeed generally failed!***\n");}
             else{
                 sender.send(returnback);
@@ -38,7 +40,8 @@ server.get('/login.html',(required,sender)=>{
 
 
 server.get('/get_comments',(required,sender)=>{
-    generateComments((returnback)=>{
+    var postID = required.postID;
+    generateComments(postID, (returnback)=>{
             if(returnback==true){console.log("****generateComments generally failed!***\n");}
             else{
                 sender.send(returnback);
@@ -46,15 +49,24 @@ server.get('/get_comments',(required,sender)=>{
     });
 })
 
-server.get('/get_login_status',(required,sender)=>{
-    Login_Verify((returnback)=>{
-            if(returnback==true){console.log("****LoginVerification generally failed!***\n");}
-            else{
-                sender.send(returnback);
-            }
-    });
+server.get('/get_cookie',(required,sender)=>{
+    let Cookie = required.cookies.Logged_in_User;
+    Cookie=JSON.parse(Cookie);
+    sender.send(Cookie);
 })
-
+server.get('/get_users', (required, sender) =>
+{
+    console.log("Request Start");
+    var username = required.query.username;
+    console.log(username);
+    getUsers(username, (returnback)=>{
+        if(returnback==true){console.log("****getUsers generally failed!***\n");}
+        else{
+            sender.send(returnback);
+        }
+    console.log("Request End");
+});
+})
 server.post('/loginCheck',(required,sender)=>{
     var username = required.body.username; 
     var password = required.body.password; 
@@ -67,6 +79,7 @@ server.post('/loginCheck',(required,sender)=>{
         
         if(check_flag == 1)
         {
+            sender.cookie('Logged_in_User',JSON.stringify({User:username}),{maxAge:7200000,httpOnly: true});
             sender.redirect("./main.html");
         }
         else
