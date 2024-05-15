@@ -22,7 +22,7 @@ server.listen(server_port,server_ip,(server_error)=>{
 global.current_workspace=path.resolve(__dirname);
 //Module imports
 const {Login_Verify, addAccount, addComment, addPost, addLikes, addFollower, generateFeed, generateComments, getUsers} = require("./connect.js");
-
+//get methods
 server.get('/get_feed',(required,sender)=>{
     var username = required.username;
     generateFeed(username, (returnback)=>{
@@ -67,6 +67,7 @@ server.get('/get_users', (required, sender) =>
     console.log("Request End");
 });
 })
+//post methods
 server.post('/loginCheck',(required,sender)=>{
     var username = required.body.username; 
     var password = required.body.password; 
