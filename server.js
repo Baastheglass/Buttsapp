@@ -7,8 +7,10 @@ const o_stream = require('fs');
 const multer = require('multer');
 const cookie_parser = require('cookie-parser');
 
-const server_ip = "192.168.100.18"; /*DO CHANGE WHEN URL/IPV4 CHANGES MANDATORY*/
-const server_port = 3000;
+const server_ip = "172.20.10.3"; /*DO CHANGE WHEN URL/IPV4 CHANGES MANDATORY*/
+const server_port = 5500;
+server.use(middle.urlencoded({ extended: true }));
+server.use(express.static('C:/Users/User/Desktop/VSCode/WEBDEV/BUTTSAPP'));
 /*Server Listening */
 server.listen(server_port,server_ip,(server_error)=>{
     console.log("***********************************");
@@ -16,7 +18,7 @@ server.listen(server_port,server_ip,(server_error)=>{
     console.log("Listening to "+server_ip+":"+server_port);
     console.log("***********************************");
 })
-
+global.current_workspace=path.resolve(__dirname);
 //Module imports
 const {Login_Verify, addAccount, addComment, addPost, addLikes, addFollower, generateFeed, generateComments} = require("./connect.js");
 
@@ -28,6 +30,12 @@ server.get('/get_feed',(required,sender)=>{
             }
     });
 })
+
+
+server.get('/login.html',(required,sender)=>{
+            sender.sendFile('/login.html');
+})
+
 
 server.get('/get_comments',(required,sender)=>{
     generateComments((returnback)=>{
@@ -47,28 +55,21 @@ server.get('/get_login_status',(required,sender)=>{
     });
 })
 
-connectify_server.post('/loginCheck',(required,sender)=>{
+server.post('/loginCheck',(required,sender)=>{
     var username = required.body.username; 
     var password = required.body.password; 
     var check_flag = 0;
-     /*Running Login Check Query */
-     Login_Check(email,password,(record)=>{
-             if(record==false){console.log("\nLogin Query generally failed\n");}
-             check_flag=record.map(lflag_obj => lflag_obj.lflag);
-             if(check_flag[0]==1){
-                 console.log("\nFor Debugging purpose Sucess Login with email: "+email+"\nPassword: "+password);
-                 Get_User(email,password,(record)=>{
-                     if(record==false){console.log("Get_User Query Generally faield!");}
-                     let current_name=record.map(c_user_obj=>c_user_obj.user_name);
-                     let current_id = record.map(c_user_obj=>c_user_obj.user_id);
-                     temp_user=current_name;
-                     temp_id=current_id;
-                     sender.cookie('Logged_in_User',JSON.stringify({User:current_name,User_ID:current_id}),{maxAge:7200000,httpOnly: true});
-                     sender.redirect('/www.connectify.com/'+temp_user+temp_id+'/Home_Page');
-                 })
-             }else{
-                 console.log("\nFor Debugging purpose Failed Login with email: "+email+"\nPassword: "+password)
-                 sender.redirect('/www.connectify.com/');
-             }
-         })
+    /*Running Login Check Query */
+    Login_Verify(username, password, (record)=>{
+        check_flag = record.map(function(c_user_obj) {
+            return c_user_obj.userExists;
+        });
+        
+        if(check_flag == 1)
+        {
+            sender.redirect("./main.html");
+        }
+        else
+           console.log("No");
+        })
 })
