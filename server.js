@@ -73,3 +73,16 @@ server.post('/loginCheck',(required,sender)=>{
            console.log("No");
         })
 })
+
+server.post('/addAccount', (required,sender) =>
+{
+    console.log("Entered function");
+    var firstName = required.body.firstName;
+    var lastName = required.body.lastName;
+    var email = required.body.email;
+    var username = required.body.username;
+    var password = required.body.password;
+    //Running addAccount query
+    addAccount(firstName, lastName, email, username, password);
+    sender.redirect('/login.html');
+})
