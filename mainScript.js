@@ -12,7 +12,7 @@ get_feed.send();
 get_feed.onload = async function()
 {
     console.log("Potty");
-    var parentDiv = document.querySelector('#results');
+    var parentDiv = document.querySelector('.feed');
     var storeDiv = document.querySelector('#line');
     data = JSON.parse(get_users.response);
     var storeName = document.querySelector('#name');
@@ -24,5 +24,5 @@ get_feed.onload = async function()
         parentDiv.appendChild(cloneDiv);
     }
     console.log("Potty");
-    
+
 }
