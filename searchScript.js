@@ -38,7 +38,17 @@ searchButton.addEventListener("click", async function()
                 cloneDiv.querySelector("#followButton").setAttribute("name", data[i].username);
                 parentDiv.appendChild(cloneDiv);
             }
-
+            storeDiv.querySelector("#followButton").addEventListener("click", function()
+            {
+                var name = storeDiv.querySelector("#followButton").name;
+                var add_friend = new XMLHttpRequest();
+                add_friend.open("GET", '/addFollower');
+                add_friend.send();
+                add_friend.onload = async function()
+                {
+                    
+                }
+            });
             for(var i = 1; i < data.length; i++)
             {
                 
