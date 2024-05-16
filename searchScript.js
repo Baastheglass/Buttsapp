@@ -34,6 +34,7 @@ searchButton.addEventListener("click", async function()
             {
                 var cloneDiv = storeDiv.cloneNode(true);
                 cloneDiv.querySelector("#name").textContent = data[i].username;
+                cloneDiv.querySelector("#followButton").setAttribute("name", data[i].username);
                 parentDiv.appendChild(cloneDiv);
             }
             console.log("Potty");
