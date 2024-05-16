@@ -5,7 +5,7 @@ const config={
      connectionString: "DSN=ButtsappBackEnd;UID=sa;PWD=12345678;" /*SQL System Adminstrator UID/PASS DSN ODBC driver*/
  };
 
-module.exports = {Login_Verify, addAccount, addComment, addPost, addLikes, addFollower, generateFeed, generateComments, getUsers};
+module.exports = {Login_Verify, addAccount, addComment, addPost, addLikes, addFollower, generateFeed, generateComments, getUsers, addDislikes};
 function Login_Verify(username, password, returnback)
 {
     // Establish a connection to the SQL Server using the provided configuration
@@ -157,7 +157,7 @@ function addPost(username, caption, imageLink)
     });
 }
 
-function addLikes(postID, username)
+function addLikes(postID)
 {
     // Establish a connection to the SQL Server using the provided configuration
     db_sql.connect(config,(error)=>{
@@ -174,7 +174,7 @@ function addLikes(postID, username)
         let exec_procedure = "exec addLikes";
         
         // Define the input parameters for the stored procedure (email and password)
-        let parameters = "\n @postID =" + postID + ",\n @username = '" + username + "'";
+        let parameters = "\n @postID =" + postID;
         // Concatenate all parts to form the complete SQL query
         let full_query = exec_procedure + parameters;
         
@@ -186,6 +186,39 @@ function addLikes(postID, username)
             }
             // Log the query for debugging purposes
             console.log("****For Debugging Add Likes Query ******\n"+ full_query +"\n*************");
+        });
+    });
+}
+
+function addDislikes(postID)
+{
+    // Establish a connection to the SQL Server using the provided configuration
+    db_sql.connect(config,(error)=>{
+        // Check if there is an error while connecting to the database
+        if(error){
+            console.log("\nDatabase SQL Connection failed!\n"); 
+            // Call the callback function with 'false' to indicate connection failure
+            returnback(false);
+        }
+        // Create a new SQL request object
+        let  query_exec=new db_sql.Request();
+        
+        // Define the stored procedure to execute for login check
+        let exec_procedure = "exec addDislikes";
+        
+        // Define the input parameters for the stored procedure (email and password)
+        let parameters = "\n @postID =" + postID;
+        // Concatenate all parts to form the complete SQL query
+        let full_query = exec_procedure + parameters;
+        
+        // Execute the SQL query
+        query_exec.query(full_query,(query_error,res)=>{
+            // Check if there is an error while executing the query
+            if(query_error){
+                console.log("\n****Add Dislikes Failed!*****\n"+query_error); 
+            }
+            // Log the query for debugging purposes
+            console.log("****For Debugging Add Dislikes Query ******\n"+ full_query +"\n*************");
         });
     });
 }
