@@ -38,16 +38,17 @@ searchButton.addEventListener("click", async function()
                 cloneDiv.querySelector("#followButton").setAttribute("name", data[i].username);
                 parentDiv.appendChild(cloneDiv);
             }
-            storeDiv.querySelector("#followButton").addEventListener("click", function()
+            storeDiv.querySelector("#followButton").addEventListener("click", async function()
             {
-                var name = storeDiv.querySelector("#followButton").name;
-                var add_friend = new XMLHttpRequest();
-                add_friend.open("GET", '/addFollower');
-                add_friend.send();
-                add_friend.onload = async function()
+                await new Promise((resolve,reject)=>
                 {
-                    
-                }
+                    var name = storeDiv.querySelector("#followButton").name;
+                    console.log("Name: " + name);
+                    var add_friend = new XMLHttpRequest();
+                    add_friend.open("GET", "/addFollower?followed_Username=" + name);
+                    add_friend.send();
+                    resolve();
+                });
             });
             for(var i = 1; i < data.length; i++)
             {

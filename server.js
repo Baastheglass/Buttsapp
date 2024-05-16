@@ -76,6 +76,24 @@ server.get('/get_users', (required, sender) =>
     console.log("Request End");
 });
 })
+
+server.get('/addFollower', (required,sender) =>
+{
+    console.log("Entered addFollower");
+    var cookie = required.cookies.Logged_in_User;
+    if(cookie)
+    {
+        cookie = JSON.parse(cookie);
+        var follower_username = cookie.User;
+        var followed_Username = required.query.followed_Username;
+        console.log("Followed Username: " + followed_Username);
+        addFollower(follower_username, followed_Username);
+    }
+    else
+        console.log("Cookie not found");
+    
+})
+    
 //post methods
 server.post('/loginCheck',(required,sender)=>{
     var username = required.body.username; 
@@ -110,14 +128,4 @@ server.post('/addAccount', (required,sender) =>
     sender.redirect('/login.html');
 })
 
-server.get('/addFollower', (required,sender) =>
-{
-    console.log("Entered addFollower");
-    var cookie = required.cookies.Logged_in_User;
-    cookie = JSON.parse(cookie);
-    var follower_username = Logged_in_User.User;
-    var followed_username = required.query.name;
-    addFollower(follower_username, followed_username);
-})
-    
     
