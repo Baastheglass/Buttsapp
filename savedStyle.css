@@ -1,0 +1,202 @@
+body
+{
+    background-color: #88BDBC;
+    color: #CCCCCC;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;  
+    text-align:center;
+    margin-top: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
+    padding-top: 0px;
+}
+nav > ul
+{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    background-color: #112D32;
+    width: 100%;
+    height: 10vh;
+    padding:0px;
+    margin-top: 0%;
+    margin-right: 0%;
+    margin-left: 0%;
+    gap: 0.25%;
+}
+li > img
+{
+    width: 60px;
+}
+.options
+{
+    border: 2px solid black;
+    background-color: #88BDBC;
+    text-align:center;
+    height: 9.5vh;
+    width: 100%;
+    border-radius: 10%;
+    animation-name: bounce;
+    animation-duration: 1.5s;
+}
+#option1
+{
+    margin-left: 0%;
+}
+div
+{  
+    color: #EEEEEE;
+    margin-right: 1%;                                   
+}
+.options:hover
+{
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(299deg) brightness(104%) contrast(103%);
+    border: solid 2px floralwhite;
+}
+.feed
+{
+    width: 100%;
+    height: 100%;
+    animation: scale;
+    animation-duration: 1.5s;
+}
+.post
+{
+    width: 30%;
+    height: 30%;
+    margin: 0 auto;
+    margin-bottom: 7.5%;
+}
+.picture > img
+{
+    width: 100%;
+    border: solid 2px #112D32;
+    height: 100%;
+}
+.caption
+{
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    justify-content: left;
+    margin-left: 0%;
+    margin-bottom: 2.5%;
+}
+.pfp
+{
+    width: 7.5%;
+    height: 5%;
+    border-radius: 50%;
+    border: solid 1px #112D32;
+    margin-right: 2.5%;
+}
+.postButton
+{
+    width: 30%;
+    border: 2px solid black;
+    background-color: #112D32;
+    color: floralwhite;
+    text-align:center;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;  
+    font-size: 1.5rem;
+}
+.postButton > img
+{
+    fill: #EEEEEE;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(299deg) brightness(104%) contrast(103%);
+}
+.postButton:hover
+{
+    border: solid 2px floralwhite;
+}
+#webName
+{
+    margin-top: 0%;
+    text-align: center; 
+    font-size: 4rem;
+    color: #CCCCCC;
+}
+a
+{
+    text-decoration: none;
+}
+.caption > p
+{
+    font-size: 2rem;
+}
+.caption > img
+{
+    margin-top: 5%;
+}
+div.caption
+{
+    display: flex;
+    flex-direction: row;
+}
+li
+{
+    animation-name: fadeIn;
+    animation-duration: 2s;
+}
+@keyframes scale-a-lil 
+{
+    from 
+    {
+      scale: .5;
+    }
+}
+@media (prefers-reduced-motion: no-preference) 
+{
+    .post 
+    {
+        animation: scale-a-lil linear both;
+        animation-timeline: view();
+        animation-range: 25vh 75vh;
+    }
+}
+@keyframes bounce
+{
+    0%
+    {
+        opacity: 0%;
+        scale: 0%;
+    }
+    50%
+    {
+        scale: 105%;
+    }
+    100%
+    {
+        opacity: 100%;
+        scale: 100%;
+    }
+}
+@keyframes scale 
+{
+    0% 
+    {
+        scale: 0%;
+        opacity: 0%;
+    }
+    100%
+    {
+        scale: 100%;
+        opacity: 100%;
+    }
+}
+@keyframes fadeIn
+{
+    0%
+    {
+        opacity: 0%;
+    }
+    100%
+    {
+        opacity: 100%;
+    }
+}
