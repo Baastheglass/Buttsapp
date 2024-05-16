@@ -1,0 +1,85 @@
+body 
+{
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    background-color: #88BDBC;
+    color: #112D32;
+    margin: 0;
+}
+h1
+{
+    margin-top: 15%;
+    top : 500;
+    font-size: 4.5rem;
+    text-align: center;
+}
+h1
+{  
+    animation-name: fadeIn;
+    animation-duration: 2s;
+}
+h2
+{  
+    top: 600;
+    font-size: 2rem;
+    text-align: center;
+  
+}
+h2
+{
+    color: #a82727;
+    animation-name: bounce;
+    animation-duration: 2s;
+}
+#back
+{   
+    background-color: #112D32;
+    position:absolute;
+    top:0;
+    left:0;
+    font-size: 2rem;
+}
+#back > img
+{
+    fill: #EEEEEE;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(299deg) brightness(104%) contrast(103%);
+}
+#back:hover
+{
+    border-color: floralwhite;
+}
+
+@keyframes fadeIn
+{
+    from 
+    {
+        opacity: 0%;
+    }
+    to 
+    {
+        opacity: 100%;
+    }
+}
+@keyframes bounce 
+{
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
+    40% {transform: translateY(-30px);} 
+    60% {transform: translateY(-15px);} 
+}
+@keyframes float
+{
+    0%
+    {
+        margin-top: 5%;
+    }
+    50%
+    {
+        margin-top: 0%;
+    }
+    100%
+    {
+        margin-top: 5%;
+    }
+} 
