@@ -30,12 +30,18 @@ searchButton.addEventListener("click", async function()
             var button = document.querySelector("#followButton");
             button.style.display = "inline-block";
             storeName.textContent = data[0].username;
+            storeDiv.querySelector("#followButton").setAttribute("name", data[0].username);
             for(var i = 1; i < data.length; i++)
             {
                 var cloneDiv = storeDiv.cloneNode(true);
                 cloneDiv.querySelector("#name").textContent = data[i].username;
                 cloneDiv.querySelector("#followButton").setAttribute("name", data[i].username);
                 parentDiv.appendChild(cloneDiv);
+            }
+
+            for(var i = 1; i < data.length; i++)
+            {
+                
             }
             console.log("Potty");
         }

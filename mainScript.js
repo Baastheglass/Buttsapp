@@ -33,12 +33,14 @@ get_feed.onload = async function()
     storeDiv.querySelector("#name").textContent = data[0].authorName;
     storeDiv.querySelector("#caption").textContent = data[0].caption;
     //storeDiv.querySelector("image").src = data[0].imageLink;
+    storeDiv.setAttribute("name", data[0].postID);
     for(var i = 1; i < data.length; i++)
     {
         var cloneDiv = storeDiv.cloneNode(true);
         cloneDiv.querySelector("#name").textContent = data[i].authorName;
         cloneDiv.querySelector('#caption').textContent = data[i].caption;
         cloneDiv.querySelector('#image').src = data[i].imageLink;
+        cloneDiv.setAttribute("name", data[0].postID);
         parentDiv.appendChild(cloneDiv);
     }
     console.log("Potty");

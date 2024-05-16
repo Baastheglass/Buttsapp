@@ -99,7 +99,7 @@ server.post('/loginCheck',(required,sender)=>{
 
 server.post('/addAccount', (required,sender) =>
 {
-    console.log("Entered function");
+    console.log("Entered addAccount");
     var firstName = required.body.firstName;
     var lastName = required.body.lastName;
     var email = required.body.email;
@@ -109,3 +109,15 @@ server.post('/addAccount', (required,sender) =>
     addAccount(firstName, lastName, email, username, password);
     sender.redirect('/login.html');
 })
+
+server.get('/addFollower', (required,sender) =>
+{
+    console.log("Entered addFollower");
+    var cookie = required.cookies.Logged_in_User;
+    cookie = JSON.parse(cookie);
+    var follower_username = Logged_in_User.User;
+    var followed_username = required.query.name;
+    addFollower(follower_username, followed_username);
+})
+    
+    
