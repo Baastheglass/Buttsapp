@@ -93,6 +93,22 @@ server.get('/addFollower', (required,sender) =>
         console.log("Cookie not found");
     
 })
+
+server.get('/addLikes', (required,sender) =>
+{
+    console.log("Entered addLikes");
+    var postID = required.query.postID;
+    console.log("PostID: " + postID);
+    addLikes(postID);
+})
+
+server.get('/addDislikes', (required,sender) =>
+{
+    console.log("Entered addDislikes");
+    var postID = required.query.postID;
+    console.log("PostID: " + postID);
+    addDislikes(postID);
+})
     
 //post methods
 server.post('/loginCheck',(required,sender)=>{
