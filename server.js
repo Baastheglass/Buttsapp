@@ -24,7 +24,7 @@ global.current_workspace=path.resolve(__dirname);
 const {Login_Verify, addAccount, addComment, addPost, addLikes, addFollower, generateFeed, generateComments, getUsers} = require("./connect.js");
 //get methods
 server.get('/get_feed',(required,sender)=>{
-    var username = required.username;
+    var username = required.query.username;
     generateFeed(username, (returnback)=>{
             if(returnback==true){console.log("****generateFeed generally failed!***\n");}
             else{
@@ -51,8 +51,14 @@ server.get('/get_comments',(required,sender)=>{
 
 server.get('/get_cookie',(required,sender)=>{
     let Cookie = required.cookies.Logged_in_User;
-    Cookie=JSON.parse(Cookie);
-    sender.send(Cookie);
+    if(Cookie)
+    {
+        Cookie = JSON.parse(Cookie);
+        sender.send(Cookie);
+    }
+    else
+        sender.status(400).send({error: "No cookie found"});
+    
 })
 server.get('/get_users', (required, sender) =>
 {
@@ -81,6 +87,7 @@ server.post('/loginCheck',(required,sender)=>{
         if(check_flag == 1)
         {
             sender.cookie('Logged_in_User',JSON.stringify({User:username}),{maxAge:7200000,httpOnly: true});
+            console.log(sender.cookie);
             sender.redirect("./main.html");
         }
         else

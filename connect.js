@@ -1,5 +1,5 @@
  /*Required Files*/
-const { query } = require('express');
+const query = require('express');
 const db_sql = require('mssql/msnodesqlv8');
  /*Configuration*/
 const config={

@@ -3,7 +3,7 @@ const get_cookie = new XMLHttpRequest();
 
 get_cookie.open("GET",'/get_cookie');
 get_cookie.send();
-
+var username;
 get_cookie.onload = function()
 {
     let logged_data = JSON.parse(get_cookie.responseText);
