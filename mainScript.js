@@ -2,37 +2,45 @@ const get_cookie = new XMLHttpRequest();
 const get_feed = new XMLHttpRequest();
 var username;
 get_cookie.open("GET",'/get_cookie', true);
+get_cookie.send();
 get_cookie.onload = async function()
 {
-    if(get_cookie.status === 200)
+    await new Promise((resolve,reject)=>
     {
-        let logged_data = JSON.parse(get_cookie.responseText);
-        username = logged_data.username[0];
-        console.log(username);
-        get_feed.open("GET", '/get_feed?username = ' + username);
-        get_feed.onload = async function()
+        console.log("In cookie");
+        if(get_cookie.status === 200)
         {
-            console.log("Potty");
-            var parentDiv = document.querySelector('.feed');
-            var storeDiv = document.querySelector('#line');
-            data = JSON.parse(get_users.response);
-            var storeName = document.querySelector('#name');
-            storeName.textContent = data[0].username;
-            for(var i = 1; i < data.length; i++)
+            let logged_data = JSON.parse(get_cookie.responseText);
+            username = logged_data.User;
+            console.log(username);
+            get_feed.open("GET", '/get_feed?username = ' + username);
+            get_feed.onload = async function()
             {
-                var cloneDiv = storeDiv.cloneNode(true);
-                cloneDiv.querySelector("#name").textContent = data[i].authorName;
-                cloneDiv.querySelector('#caption').textContent = data[i].caption;
-                cloneDiv.querySelector('#image').value = data[i].imageLink;
-                parentDiv.appendChild(cloneDiv);
+                console.log("Potty");
+                var parentDiv = document.querySelector('.feed');
+                var storeDiv = document.querySelector('#line');
+                data = JSON.parse(get_users.response);
+                var storeName = document.querySelector('#name');
+                storeName.textContent = data[0].username;
+                for(var i = 1; i < data.length; i++)
+                {
+                    var cloneDiv = storeDiv.cloneNode(true);
+                    cloneDiv.querySelector("#name").textContent = data[i].authorName;
+                    cloneDiv.querySelector('#caption').textContent = data[i].caption;
+                    cloneDiv.querySelector('#image').src = data[i].imageLink;
+                    parentDiv.appendChild(cloneDiv);
+                }
+                console.log("Potty");
             }
-            console.log("Potty");
+            get_feed.send();
         }
-        get_feed.send();
-    }
-    else
-        console.log("Failed to retrieve cookie");
+        else
+            console.log("Failed to retrieve cookie");
+        resolve();
+    })
+    
+    
 }
-get_cookie.send();
+
 
 

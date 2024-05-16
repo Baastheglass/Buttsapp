@@ -86,7 +86,7 @@ server.post('/loginCheck',(required,sender)=>{
         
         if(check_flag == 1)
         {
-            sender.cookie('Logged_in_User',JSON.stringify({User:username}),{maxAge:7200000,httpOnly: true});
+            sender.cookie('Logged_in_User',JSON.stringify({User:username}),{maxAge:7200000,httpOnly: true, sameSite: 'lax'});
             console.log(sender.cookie);
             sender.redirect("./main.html");
         }
