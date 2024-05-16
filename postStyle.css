@@ -7,8 +7,11 @@ h1, p, button, textarea
 }
 h1
 {
+
+    margin-top: 10;
     text-align: center;
-    font-size: 7.5rem;
+    font-size: 5rem;
+    font-weight: 700;
     animation-name: slideFromTop;
     animation-duration: 2s;
 }
@@ -31,35 +34,21 @@ body
     justify-content: center;
     align-items: center;
 }
-#ImageAttachment
-{
-    width: 2.5vw;
-    height: 2.5vh;
-    margin: 0 auto;
-    padding: 20%;
-    border: dashed 5px #112D32; 
-    margin-bottom: 1%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#ImageAttachment:hover
-{
-    background-color: #254E58;
-}
-textarea
-{
+#textarea
+{   
+    top: 70%;
     width: 30vw;
     height: 15vh;
     margin-bottom: 1%;
     font-size: 1.5rem;
 }
-#drivelink{
+#drivelink
+{
+   
 
-    top: 45%;
     text-align: center;
     font-size: 2rem;
-    animation-name: slideFromLeft;
+    animation-name: fadeIn;
     animation-duration: 2s;
     position: absolute;
     
