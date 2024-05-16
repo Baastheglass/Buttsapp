@@ -7,7 +7,7 @@ const o_stream = require('fs');
 const multer = require('multer');
 const cookie_parser = require('cookie-parser');
 
-const server_ip = "172.20.10.3"; /*DO CHANGE WHEN URL/IPV4 CHANGES MANDATORY*/
+const server_ip = "192.168.100.18"; /*DO CHANGE WHEN URL/IPV4 CHANGES MANDATORY*/
 const server_port = 5500;
 server.use(middle.urlencoded({ extended: true }));
 server.use(express.static('C:/Users/User/Desktop/VSCode/WEBDEV/BUTTSAPP'));
@@ -24,7 +24,9 @@ global.current_workspace=path.resolve(__dirname);
 const {Login_Verify, addAccount, addComment, addPost, addLikes, addFollower, generateFeed, generateComments, getUsers} = require("./connect.js");
 //get methods
 server.get('/get_feed',(required,sender)=>{
-    var username = required.query.username;
+    // let Cookie = required.cookies.Logged_in_User;
+    // Cookie = JSON.parse(Cookie);
+    var username=required.query.username;
     generateFeed(username, (returnback)=>{
             if(returnback==true){console.log("****generateFeed generally failed!***\n");}
             else{
@@ -54,6 +56,7 @@ server.get('/get_cookie',(required,sender)=>{
     if(Cookie)
     {
         Cookie = JSON.parse(Cookie);
+        console.log(Cookie);
         sender.send(Cookie);
     }
     else
@@ -83,15 +86,14 @@ server.post('/loginCheck',(required,sender)=>{
         check_flag = record.map(function(c_user_obj) {
             return c_user_obj.userExists;
         });
-        
         if(check_flag == 1)
         {
             sender.cookie('Logged_in_User',JSON.stringify({User:username}),{maxAge:7200000,httpOnly: true, sameSite: 'lax'});
             console.log(sender.cookie);
             sender.redirect("./main.html");
         }
-        else
-           console.log("No");
+        //else if(check_flag == 0)
+           //sender.redirect("./error.html");
         })
 })
 

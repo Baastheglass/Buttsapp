@@ -1,5 +1,4 @@
  /*Required Files*/
-const query = require('express');
 const db_sql = require('mssql/msnodesqlv8');
  /*Configuration*/
 const config={
@@ -258,6 +257,7 @@ function generateFeed(username, returnback)
             console.log("****For Debugging Generate Feed Query ******\n"+ full_query +"\n*************");
             
             // Call the callback function with the result of the query
+                console.log(res.recordset);
             returnback(res.recordset);
         });
     });
