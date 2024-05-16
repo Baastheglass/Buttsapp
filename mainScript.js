@@ -1,8 +1,6 @@
 const get_cookie = new XMLHttpRequest();
 const get_feed = new XMLHttpRequest();
 var username;
-
-
 get_cookie.open("GET",'/get_cookie', true);
 get_cookie.send();
 get_cookie.onload = async function()
@@ -32,8 +30,9 @@ get_feed.onload = async function()
     var parentDiv = document.querySelector('.feed');
     var storeDiv = document.querySelector('#line');
     data = JSON.parse(get_feed.responseText);
-    var storeName = document.querySelector('#name');
-    storeName.textContent = data[0].authorName;
+    storeDiv.querySelector("#name").textContent = data[0].authorName;
+    storeDiv.querySelector("#caption").textContent = data[0].caption;
+    //storeDiv.querySelector("image").src = data[0].imageLink;
     for(var i = 1; i < data.length; i++)
     {
         var cloneDiv = storeDiv.cloneNode(true);
@@ -44,14 +43,3 @@ get_feed.onload = async function()
     }
     console.log("Potty");
 }
-         
-        
-
-  
-
-    
-    
-
-
-
-

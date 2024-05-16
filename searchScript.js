@@ -27,6 +27,8 @@ searchButton.addEventListener("click", async function()
             var storeDiv = document.querySelector('#line');
             data = JSON.parse(get_users.response);
             var storeName = document.querySelector('#name');
+            var button = document.querySelector("#followButton");
+            button.style.display = "inline-block";
             storeName.textContent = data[0].username;
             for(var i = 1; i < data.length; i++)
             {

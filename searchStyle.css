@@ -37,7 +37,7 @@ h1
     animation-name: bounce;
     animation-duration: 2s;
 }
-#searchBar > button, #back
+#searchBar > button, #back, #followButton
 {
     background-color: #254E58;
     border: solid 2.5px;
@@ -72,9 +72,24 @@ h1
     text-align:center;
     font-size: 2rem;
 }
-#results:hover
+#line > *
+{
+    display: inline-block;
+}
+#line > button
+{
+    margin-left: 1%;
+}
+#followButton
 {
     color: floralwhite;
+    border-color: #112D32;
+    font-size: 1.5rem;
+    display:none;
+}
+#followButton:hover
+{
+    border-color: floralwhite;
 }
 @keyframes bounce
 {
