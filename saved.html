@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ButtsApp</title>
+    <title>Saved Posts</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Exo+2:ital,wght@0,100..900;1,100..900&family=M+PLUS+1+Code:wght@100..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
@@ -13,25 +13,7 @@
     <header>
         <nav>
             <ul>
-                <a href = "./profile.html"><div id = "option1" class = "options">
-                    <li><svg viewbox = "0 0 300 100"><img src = "./profile.svg"/></svg></li>
-                </div></a>
-                <a href = "./search.html"><div id = "option2" class = "options">
-                    <li><svg viewbox = "0 0 300 100"><img src = "./search.svg"/></svg></li>
-                </div></a>
-                <a href = "./contactUs.html"><div id = "option3" class = "options">
-                    <li><svg viewbox = "0 0 300 100"><img src = "./contactUs.svg"/></svg></li>
-                </div></a>
-                <a href = "./post.html"><div id = "option4" class = "options">
-                    <li><svg viewbox = "0 0 300 100"><img src = "./post.svg"/></svg></li>
-                </div></a>
-                <a href = "./.html"><div id = "option5" class = "options">
-                    <li><svg viewbox = "0 0 300 100"><img src = "./save.svg"/></svg></li>
-                </div></a>
-                <a href = "./index.html"><div id = "option6" class = "options">
-                    <li><svg viewbox = "0 0 300 100"><img src = "./logOut.svg"/></svg></li>
-                </div></a>
-                <li id = "webName">ButtsApp</li>
+                <li id = "webName">Saved Posts</li>
             </ul>
         </nav>
     </header>
@@ -44,11 +26,11 @@
                 <img class = "pfp" src = "https://drive.google.com/thumbnail?id=1QW1Hzf_RaWobhOu-kU05yfiQRc2ZaNB6"/>
                 <b id = "name"></b><p class = "caption" id = "caption"> </p>
             </div>
-            <button class = "postButton"><img src ="./like.svg"/></button>
-            <a href = "./comments.html"><button class = "postButton"><img src ="./comment.svg"/></button></a>
-            <button class = "postButton"><img src ="./dislike.svg"/></button>
+            <button class = "postButton" id = "like"><img src ="./like.svg"/></button>
+            <a href = "./comments.html" id = "comment"><button class = "postButton"><img src ="./comment.svg"/></button></a>
+            <button class = "postButton" id = "dislike"><img src ="./dislike.svg"/></button>
         </div>
     </div>
-    <script src = "./mainScript.js"></script>
+    <script src = "./savedScript.js"></script>
 </body>
 </html>

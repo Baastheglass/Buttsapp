@@ -123,7 +123,25 @@ server.get('/addSavedPost', (required,sender) =>
         addSavedPost(username, postID);
     }
 })
-    
+
+server.get('/retrieveSavedPosts', (required,sender) =>
+{
+    console.log("Entered retrieveSavedPosts");
+    var cookie = required.cookies.Logged_in_User;
+    if(cookie)
+    {
+        cookie = JSON.parse(cookie);
+        var username = cookie.User;
+        retrieveSavedPost(username, (returnback)=>{
+            if(returnback==true){console.log("****retrieveSavedPosts generally failed!***\n");}
+            else{
+                sender.send(returnback);
+            }});
+    }
+    else
+        console.log("Cookie not found");
+})
+
 server.get('/getPosts', (required,sender) =>
 {
     console.log("Entered getPosts");
