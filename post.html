@@ -11,17 +11,19 @@
 </head>
 <body>
     <a href = "./main.html"><button id = "back"><img src = "./back.svg"/></button></a>
-    <div id = "main">
+    
         <form method = "POST" action = '/addPost'>
-            <h1>Create a Post</h1>
-            <div id = "ImageAttachment">
-                <p>Drop Google Drive link Here</p>
-                <input placeholder = "Enter Post Link From Drive" id = "drivelink" name = "imageLink"/>
+            <div id = "main">
+                <h1>Create a Post</h1>
+                <div id = "ImageAttachment">
+                    <p>Drop Google Drive link Here</p>
+                    <input placeholder = "Enter Post Link From Drive" id = "drivelink" name = "imageLink"/>
+                </div>
+                <textarea placeholder = "Enter Mandatory Gandhi Quote Caption: " name = "caption"></textarea>
+                <button id = "post" type = "submit">Create Post</button>
             </div>
-            <textarea placeholder = "Enter Mandatory Gandhi Quote Caption: " name = "caption"></textarea>
-            <button id = "post" type = "submit">Create Post</button>
         </form>
-    </div>
+    
     <script src = "./commentScript.js"></script>
 </body>
 </html>
