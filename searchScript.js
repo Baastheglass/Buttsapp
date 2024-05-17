@@ -31,13 +31,6 @@ searchButton.addEventListener("click", async function()
             button.style.display = "inline-block";
             storeName.textContent = data[0].username;
             storeDiv.querySelector("#followButton").setAttribute("name", data[0].username);
-            for(var i = 1; i < data.length; i++)
-            {
-                var cloneDiv = storeDiv.cloneNode(true);
-                cloneDiv.querySelector("#name").textContent = data[i].username;
-                cloneDiv.querySelector("#followButton").setAttribute("name", data[i].username);
-                parentDiv.appendChild(cloneDiv);
-            }
             storeDiv.querySelector("#followButton").addEventListener("click", async function()
             {
                 await new Promise((resolve,reject)=>
@@ -52,7 +45,150 @@ searchButton.addEventListener("click", async function()
             });
             for(var i = 1; i < data.length; i++)
             {
-                
+                var cloneDiv = storeDiv.cloneNode(true);
+                cloneDiv.querySelector("#name").textContent = data[i].username;
+                parentDiv.appendChild(cloneDiv);
+            }
+            buttons = document.querySelectorAll("#followButton");
+            if(buttons[1])
+            {
+                buttons[1].addEventListener("click", async function()
+                {
+                    await new Promise((resolve,reject)=>
+                    {
+                        console.log("Name: " + data[1].username);
+                        var add_friend = new XMLHttpRequest();
+                        add_friend.open("GET", "/addFollower?followed_Username=" + data[1].username);
+                        add_friend.send();
+                        resolve();
+                    }); 
+                });
+            }
+            if(buttons[2])
+            {
+                buttons[2].addEventListener("click", async function()
+                {
+                    await new Promise((resolve,reject)=>
+                    {
+                        console.log("Name: " + data[2].username);
+                        var add_friend = new XMLHttpRequest();
+                        add_friend.open("GET", "/addFollower?followed_Username=" + data[2].username);
+                        add_friend.send();
+                        resolve();
+                    }); 
+                });
+            }
+            if(buttons[3])
+            {
+                buttons[3].addEventListener("click", async function()
+                {
+                    await new Promise((resolve,reject)=>
+                    {
+                        console.log("Name: " + data[3].username);
+                        var add_friend = new XMLHttpRequest();
+                        add_friend.open("GET", "/addFollower?followed_Username=" + data[3].username);
+                        add_friend.send();
+                        resolve();
+                    }); 
+                });
+            }
+            if(buttons[4])
+            {
+                buttons[4].addEventListener("click", async function()
+                {
+                    await new Promise((resolve,reject)=>
+                    {
+                        console.log("Name: " + data[4].username);
+                        var add_friend = new XMLHttpRequest();
+                        add_friend.open("GET", "/addFollower?followed_Username=" + data[4].username);
+                        add_friend.send();
+                        resolve();
+                    }); 
+                });
+            }
+            if(buttons[5])
+            {
+                buttons[5].addEventListener("click", async function()
+                {
+                    await new Promise((resolve,reject)=>
+                    {
+                        console.log("Name: " + data[5].username);
+                        var add_friend = new XMLHttpRequest();
+                        add_friend.open("GET", "/addFollower?followed_Username=" + data[5].username);
+                        add_friend.send();
+                        resolve();
+                    }); 
+                });
+            }
+            if(buttons[6])
+            {
+                buttons[6].addEventListener("click", async function()
+                {
+                    await new Promise((resolve,reject)=>
+                    {
+                        console.log("Name: " + data[6].username);
+                        var add_friend = new XMLHttpRequest();
+                        add_friend.open("GET", "/addFollower?followed_Username=" + data[6].username);
+                        add_friend.send();
+                        resolve();
+                    }); 
+                });
+            }
+            if(buttons[7])
+            {
+                buttons[7].addEventListener("click", async function()
+                {
+                    await new Promise((resolve,reject)=>
+                    {
+                        console.log("Name: " + data[7].username);
+                        var add_friend = new XMLHttpRequest();
+                        add_friend.open("GET", "/addFollower?followed_Username=" + data[7].username);
+                        add_friend.send();
+                        resolve();
+                    }); 
+                });
+            }
+            if(buttons[8])
+            {
+                buttons[8].addEventListener("click", async function()
+                {
+                    await new Promise((resolve,reject)=>
+                    {
+                        console.log("Name: " + data[8].username);
+                        var add_friend = new XMLHttpRequest();
+                        add_friend.open("GET", "/addFollower?followed_Username=" + data[8].username);
+                        add_friend.send();
+                        resolve();
+                    }); 
+                });
+            }
+            if(buttons[9])
+            {
+                buttons[9].addEventListener("click", async function()
+                {
+                    await new Promise((resolve,reject)=>
+                    {
+                        console.log("Name: " + data[9].username);
+                        var add_friend = new XMLHttpRequest();
+                        add_friend.open("GET", "/addFollower?followed_Username=" + data[9].username);
+                        add_friend.send();
+                        resolve();
+                    }); 
+                });
+            }
+            if(buttons[10])
+            {
+                buttons[10].addEventListener("click", async function()
+                {
+                    await new Promise((resolve,reject)=>
+                    {
+                        console.log("Name: " + data[10].username);
+                        var add_friend = new XMLHttpRequest();
+                        add_friend.open("GET", "/addFollower?followed_Username=" + data[10].username);
+                        add_friend.send();
+                        resolve();
+                    }); 
+                });
             }
             console.log("Potty");
         }

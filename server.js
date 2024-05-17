@@ -7,7 +7,7 @@ const o_stream = require('fs');
 const multer = require('multer');
 const cookie_parser = require('cookie-parser');
 
-const server_ip = "192.168.100.18"; /*DO CHANGE WHEN URL/IPV4 CHANGES MANDATORY*/
+const server_ip = "172.20.10.3"; /*DO CHANGE WHEN URL/IPV4 CHANGES MANDATORY*/
 const server_port = 5500;
 server.use(middle.urlencoded({ extended: true }));
 server.use(express.static('C:/Users/User/Desktop/VSCode/WEBDEV/BUTTSAPP'));
@@ -21,7 +21,7 @@ server.listen(server_port,server_ip,(server_error)=>{
 })
 global.current_workspace=path.resolve(__dirname);
 //Module imports
-const {Login_Verify, addAccount, addComment, addPost, addLikes, addFollower, generateFeed, generateComments, getUsers, addDislikes} = require("./connect.js");
+const {Login_Verify, addAccount, addComment, addPost, addLikes, addFollower, generateFeed, generateComments, getUsers, addDislikes, getPosts, getUserInfo} = require("./connect.js");
 //get methods
 server.get('/get_feed',(required,sender)=>{
     // let Cookie = required.cookies.Logged_in_User;
@@ -91,7 +91,6 @@ server.get('/addFollower', (required,sender) =>
     }
     else
         console.log("Cookie not found");
-    
 })
 
 server.get('/addLikes', (required,sender) =>
@@ -108,6 +107,42 @@ server.get('/addDislikes', (required,sender) =>
     var postID = required.query.postID;
     console.log("PostID: " + postID);
     addDislikes(postID);
+})
+
+server.get('/getPosts', (required,sender) =>
+{
+    console.log("Entered getPosts");
+    var cookie = required.cookies.Logged_in_User;
+    if(cookie)
+    {
+        cookie = JSON.parse(cookie);
+        var username = cookie.User;
+        getPosts(username, (returnback)=>{
+            if(returnback==true){console.log("****getPosts generally failed!***\n");}
+            else{
+                sender.send(returnback);
+            }});
+    }
+    else
+        console.log("Cookie not found");
+})
+
+server.get('/getUserInfo', (required,sender) =>
+{
+    console.log("Entered getUserInfo");
+    var cookie = required.cookies.Logged_in_User;
+    if(cookie)
+    {
+        cookie = JSON.parse(cookie);
+        var username = cookie.User;
+        getUserInfo(username, (returnback)=>{
+            if(returnback==true){console.log("****getUserInfo generally failed!***\n");}
+            else{
+                sender.send(returnback);
+            }});
+    }
+    else
+        console.log("Cookie not found");
 })
     
 //post methods
@@ -143,5 +178,3 @@ server.post('/addAccount', (required,sender) =>
     addAccount(firstName, lastName, email, username, password);
     sender.redirect('/login.html');
 })
-
-    
