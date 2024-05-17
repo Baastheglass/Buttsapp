@@ -94,7 +94,7 @@ div
 }
 .postButton
 {
-    width: 30%;
+    width: 20%;
     border: 2px solid black;
     background-color: #112D32;
     color: floralwhite;
@@ -103,7 +103,7 @@ div
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;  
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 .postButton > img
 {
