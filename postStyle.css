@@ -10,7 +10,7 @@ h1
 
     margin-top: 10;
     text-align: center;
-    font-size: 5rem;
+    font-size: 7.5rem;
     font-weight: 700;
     animation-name: slideFromTop;
     animation-duration: 2s;
@@ -34,7 +34,7 @@ body
     justify-content: center;
     align-items: center;
 }
-#textarea
+textarea
 {   
     top: 70%;
     width: 30vw;
@@ -44,15 +44,9 @@ body
 }
 #drivelink
 {
-   
-
-    text-align: center;
-    font-size: 2rem;
-    animation-name: fadeIn;
-    animation-duration: 2s;
-    position: absolute;
-    
-
+    margin-bottom: 15%;
+    font-size: 1.5rem;
+    margin-left: 12.5%;
 }
 #drivelink :hover
 {
