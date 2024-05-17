@@ -25,6 +25,7 @@ getPosts.onload = async function()
     console.log(data.length);
     if(data.length < 3)
     {
+        console.log("Less than 3");
         var post1 = document.querySelector("#post1");
         var post2 = document.querySelector("#post2");
         var post3 = document.querySelector("#post3");
@@ -42,6 +43,7 @@ getPosts.onload = async function()
     }
     else
     {
+        console.log("More than 3");
         var post1 = document.querySelector("#post1");
         var post2 = document.querySelector("#post2");
         var post3 = document.querySelector("#post3");
@@ -58,8 +60,9 @@ getPosts.onload = async function()
         }
         for(var i = 3; i < data.length; i++)
         {
+            console.log("Entering cloneDiv area");
             var cloneDiv = storeDiv.cloneNode(true);
-            for(var j = 0; j < 3; j++)
+            for(var j = 0; j < 3 && (i + j) < data.length; j++)
             {
                 if(j == 0)
                     cloneDiv.querySelector("#post1").src = data[i + j].imageLink;
