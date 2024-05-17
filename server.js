@@ -21,7 +21,7 @@ server.listen(server_port,server_ip,(server_error)=>{
 })
 global.current_workspace=path.resolve(__dirname);
 //Module imports
-const {Login_Verify, addAccount, addComment, addPost, addLikes, addFollower, generateFeed, generateComments, getUsers, addDislikes, getPosts, getUserInfo} = require("./connect.js");
+const {Login_Verify, addAccount, addComment, addPost, addLikes, addFollower, generateFeed, generateComments, getUsers, addDislikes, getPosts, getUserInfo, addSavedPost, retrieveSavedPost} = require("./connect.js");
 //get methods
 server.get('/get_feed',(required,sender)=>{
     // let Cookie = required.cookies.Logged_in_User;
@@ -109,6 +109,21 @@ server.get('/addDislikes', (required,sender) =>
     addDislikes(postID);
 })
 
+server.get('/addSavedPost', (required,sender) =>
+{
+    console.log("Entered addSavedPost");
+    var cookie = required.cookies.Logged_in_User;
+    if(cookie)
+    {
+        cookie = JSON.parse(cookie);
+        var username = cookie.User;
+        console.log("Username: " + username);
+        var postID = required.query.postID;
+        console.log("PostID: " + postID);
+        addSavedPost(username, postID);
+    }
+})
+    
 server.get('/getPosts', (required,sender) =>
 {
     console.log("Entered getPosts");
