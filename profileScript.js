@@ -25,9 +25,53 @@ getPosts.onload = async function()
     console.log(data.length);
     if(data.length < 3)
     {
+        var post1 = document.querySelector("#post1");
+        var post2 = document.querySelector("#post2");
+        var post3 = document.querySelector("#post3");
         for(var i = 0; i < data.length; i++)
         {
-            
+            if(i==0)
+                post1.src = data[i].imageLink;
+         
+            else if(i == 1)
+                post2.src = data[i].imageLink;
+
+            else if(i == 2)
+                post3.src = data[i].imageLink;
+        }
+    }
+    else
+    {
+        var post1 = document.querySelector("#post1");
+        var post2 = document.querySelector("#post2");
+        var post3 = document.querySelector("#post3");
+        for(var i = 0; i < 3; i++)
+        {
+            if(i==0)
+                post1.src = data[i].imageLink;
+         
+            else if(i == 1)
+                post2.src = data[i].imageLink;
+
+            else if(i == 2)
+                post3.src = data[i].imageLink;
+        }
+        for(var i = 3; i < data.length; i++)
+        {
+            var cloneDiv = storeDiv.cloneNode(true);
+            for(var j = 0; j < 3; j++)
+            {
+                if(j == 0)
+                    cloneDiv.querySelector("#post1").src = data[i + j].imageLink;
+                
+                else if(j == 1)
+                    cloneDiv.querySelector("#post2").src = data[i + j].imageLink;
+    
+                else if(j == 2)
+                    cloneDiv.querySelector("#post3").src = data[i + j].imageLink;
+            }
+            i += 3;
+            parentDiv.appendChild(cloneDiv);
         }
     }
 }
