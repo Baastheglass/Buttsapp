@@ -32,7 +32,10 @@ get_feed.onload = async function()
     console.log("Potty");
     var parentDiv = document.querySelector('.feed');
     var storeDiv = document.querySelector('#line');
+    var commentLink = storeDiv.querySelector('#commenthref');
     data = JSON.parse(get_feed.responseText);
+    commentLink.href = "./comments.html?postID=" + data[0].postID;
+    console.log(commentLink.href);
     storeDiv.querySelector("#name").textContent = data[0].authorName;
     storeDiv.querySelector("#caption").textContent = data[0].caption;
     //storeDiv.querySelector("image").src = data[0].imageLink;

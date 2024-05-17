@@ -42,7 +42,7 @@ server.get('/login.html',(required,sender)=>{
 
 
 server.get('/get_comments',(required,sender)=>{
-    var postID = required.postID;
+    var postID = required.query.postID;
     generateComments(postID, (returnback)=>{
             if(returnback==true){console.log("****generateComments generally failed!***\n");}
             else{
