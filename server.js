@@ -7,7 +7,7 @@ const o_stream = require('fs');
 const multer = require('multer');
 const cookie_parser = require('cookie-parser');
 
-const server_ip = "192.168.100.18"; /*DO CHANGE WHEN URL/IPV4 CHANGES MANDATORY*/
+const server_ip = "172.20.10.3"; /*DO CHANGE WHEN URL/IPV4 CHANGES MANDATORY*/
 const server_port = 5500;
 server.use(middle.urlencoded({ extended: true }));
 server.use(express.static('C:/Users/User/Desktop/VSCode/WEBDEV/BUTTSAPP'));
@@ -177,7 +177,24 @@ server.get('/getUserInfo', (required,sender) =>
     else
         console.log("Cookie not found");
 })
-    
+
+server.get('/addComment', (required,sender) =>
+{
+    console.log("Entered addComment");
+    var cookie = required.cookies.Logged_in_User;
+    if(cookie)
+    {
+        cookie = JSON.parse(cookie);
+        var username = cookie.User;
+        var postID = required.query.postID;
+        var caption = required.query.comment;
+        //Running addComment query
+        addComment(caption, postID, username);
+    }
+    else
+        console.log("No cookie found");
+})
+        
 //post methods
 server.post('/loginCheck',(required,sender)=>{
     var username = required.body.username; 

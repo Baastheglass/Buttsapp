@@ -74,13 +74,13 @@ textarea, button
 {
     border-color: floralwhite;
 }
-#right > button
+#right > a > button
 {
     background-color: #254E58;
     color: floralwhite;
     border: solid 2.5px black;
 }
-#right > button:hover
+#right > a > button:hover
 {
     border-color:floralwhite;
 }

@@ -68,6 +68,8 @@ get_feed.onload = async function()
         cloneDiv.querySelector('#caption').textContent = data[i].caption;
         cloneDiv.querySelector('#image').src = data[i].imageLink;
         cloneDiv.setAttribute("name", data[0].postID);
+        cloneDiv.querySelector("#commenthref");
+        commentLink.href = "./comments.html?postID=" + data[i].postID;
         parentDiv.appendChild(cloneDiv);
     }
     likeButtons = document.querySelectorAll("#like");

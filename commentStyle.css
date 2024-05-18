@@ -42,8 +42,9 @@ button
     position:absolute;
     bottom: 0;
     margin-bottom: 1.5%;
+    margin-top: 5%;
 }
-p,button,input
+p,button,input,b
 {
     font-size: 1.5rem;
 }
@@ -59,6 +60,10 @@ h1
     font-size: 5rem;
     animation-name: scaleUp;
     animation-duration: 2s;
+}
+b
+{
+    margin-right: 1%;
 }
 @keyframes scaleUp 
 {

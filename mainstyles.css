@@ -143,6 +143,10 @@ li
     animation-name: fadeIn;
     animation-duration: 2s;
 }
+#image
+{
+    width: 50%;
+}
 @keyframes scale-a-lil 
 {
     from 
