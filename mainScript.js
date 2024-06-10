@@ -38,7 +38,7 @@ get_feed.onload = async function()
     console.log(commentLink.href);
     storeDiv.querySelector("#name").textContent = data[0].authorName;
     storeDiv.querySelector("#caption").textContent = data[0].caption;
-    //storeDiv.querySelector("image").src = data[0].imageLink;
+    storeDiv.querySelector("#image").src = data[0].imageLink;
     storeDiv.setAttribute('name', data[0].postID);
     storeDiv.querySelector("#like").addEventListener("click", async function()
     {
